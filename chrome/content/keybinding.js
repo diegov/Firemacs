@@ -144,6 +144,9 @@ Firemacs.Commands.Edit = {
 };
 
 Firemacs.Commands.Common = {
+    AllTabs: function(e) {
+        this._sfun.allTabs();
+    },
     SearchForward: function(e) {
         this._sfun.SearchOpen(); var findField = this._sfun.SearchField(); if (findField && findField.value && findField.value !== '') { this._sfun.SearchForward(); }
     },
@@ -202,7 +205,7 @@ Firemacs.Commands.Common = {
         if (e.originalTarget.parentNode.parentNode == this._sfun.SearchField()) { this._sfun.SearchUnhilite(); this._sfun.SearchClose(); } else { this._sfun.generateKey(e, KeyEvent.DOM_VK_RETURN);}
     },
     CopyUrl: function(e) {
-        this._sfun.copyText(getBrowser().contentDocument.URL); this._sfun._displayMessage('URL copied', 2000);
+        this._sfun.copyText(getBrowser().contentDocument.location.href); this._sfun._displayMessage('URL copied', 2000);
     },
     CopyTitle: function(e) {
         this._sfun.copyText(getBrowser().contentDocument.title); this._sfun._displayMessage('Title copied', 2000);
@@ -297,6 +300,7 @@ Firemacs.CmdKey.Edit = {
 };
 
 Firemacs.CmdKey.Common = {
+    AllTabs: 'C-xb',
     SearchForward: 'C-s',
     SearchBackword: 'C-r',
     ScrollPageUp: 'M-v',

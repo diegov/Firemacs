@@ -83,6 +83,13 @@ body: this._sfun.moveTab(1);
 desc: moves to the next tab
 type: 
 -
+name: AllTabs
+case: Common
+keyx: C-xb
+body: this._sfun.allTabs();
+desc: tabs overview with filter
+type: 
+-
 name: ViScrollLineUp
 case: View
 keyx: k
@@ -499,7 +506,7 @@ type:
 name: CopyUrl
 case: Common
 keyx: C-M-u
-body: this._sfun.copyText(getBrowser().contentDocument.URL); this._sfun._displayMessage('URL copied', 2000);
+body: this._sfun.copyText(getBrowser().contentDocument.location.href); this._sfun._displayMessage('URL copied', 2000);
 desc: copy url
 type: 
 -
